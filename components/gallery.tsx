@@ -24,7 +24,7 @@ export default function Gallery() {
         animate={{ opacity: 1, y: 0 }}
       >
         <Gift className="mr-4" size={36} />
-        Holiday Moments
+        Festividades y Celebraciones
       </motion.h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {images.map((_, index) => (

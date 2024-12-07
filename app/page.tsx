@@ -16,13 +16,13 @@ export default function Home() {
       <Footer />
       <div id="owner" className="bg-red-900 py-4 text-center">
         <a
-          href="https://github.com/yourusername"
+          href="https://github.com/Juan-ASR"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center text-white hover:text-yellow-300 transition-colors"
         >
           <img src="/github.svg" className="w-6 h-6 mr-2" />
-          Created by Your Name
+          Created by Juan Andrés Sanchez
         </a>
       </div>
     </div>

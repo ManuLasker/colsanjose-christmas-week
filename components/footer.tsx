@@ -1,5 +1,6 @@
 'use client'
 import { motion } from 'framer-motion'
+import { Phone, Mail, MapPin } from 'lucide-react'
 
 export default function Footer() {
   return (
@@ -22,8 +23,16 @@ export default function Footer() {
       </div>
       <div className="container mx-auto px-4 pt-12 pb-8 grid grid-cols-1 md:grid-cols-3 gap-8">
         <div>
-          <h3 className="text-2xl font-display text-yellow-300 mb-4">About Us</h3>
-          <p>Celebrating the joy of learning and the spirit of the holidays.</p>
+          <h3 className="text-2xl font-display text-yellow-300 mb-4">Colegio San José</h3>
+          <p>Educando para la paz y un futuro brillante en el corazón de Barranquilla.</p>
+          <div className="flex items-center space-x-4">
+            <a href="tel:6053670600" className="flex items-center text-sm">
+              <Phone className="w-4 h-4 mr-1" /> 6053670600
+            </a>
+            <a href="mailto:pastoral@colsanjose.edu.co" className="flex items-center text-sm">
+              <Mail className="w-4 h-4 mr-1" /> pastoral@colsanjose.edu.co
+            </a>
+          </div>
         </div>
         <div>
           <h3 className="text-2xl font-display text-yellow-300 mb-4">Quick Links</h3>
@@ -33,13 +42,14 @@ export default function Footer() {
             <li><a href="#contact" className="hover:text-yellow-300 transition-colors">Contacto</a></li>
             <li><a href="#owner" className="hover:text-yellow-300 transition-colors">Creador</a></li>
           </ul>
+
         </div>
         <div>
-          <h3 className="text-2xl font-display text-yellow-300 mb-4">Contact</h3>
+          <h3 className="text-2xl font-display text-yellow-300 mb-4">Contacto</h3>
           <address className="not-italic">
-            <p>123 School Street, City, State 12345</p>
-            <p>Phone: (123) 456-7890</p>
-            <p>Email: info@school.edu</p>
+            <li className="flex items-center"><Phone className="mr-2 h-5 w-5" /> 6053670600</li>
+            <li className="flex items-center"><a href='mailto:pastoral@colsanjose.edu.co' className='flex items-center text-sm'><Mail className="mr-2 h-5 w-5" /> pastoral@colsanjose.edu.co</a></li>
+            <li className="flex items-center"><MapPin className="mr-2 h-5 w-5" /> Calle 66 No. 42 - 45, Barranquilla, Colombia</li>
           </address>
         </div>
       </div>

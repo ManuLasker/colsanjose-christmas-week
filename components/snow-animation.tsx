@@ -27,6 +27,12 @@ export default function SnowAnimation() {
     }
 
     function animate() {
+      if (ctx === null){
+        return
+      }
+      if (canvas === null){
+        return
+      }
       ctx.clearRect(0, 0, canvas.width, canvas.height)
       ctx.fillStyle = 'white'
 

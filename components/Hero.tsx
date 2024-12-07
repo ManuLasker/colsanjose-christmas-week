@@ -15,7 +15,7 @@ export default function Hero() {
         transition={{ duration: 0.8 }}
       >
         <Gift className="mr-4" size={48} />
-        Merry Christmas!
+        Feliz Navidad les desea el Colegio San José!
       </motion.h1>
       <div className="container mx-auto flex flex-col md:flex-row items-center justify-center">
         <div className="w-full md:w-1/2 flex justify-center items-end relative">
@@ -44,7 +44,16 @@ export default function Hero() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
         >
-          Celebrate the joy of the season with us! Gather 'round our festive tree, surrounded by a bounty of colorful gifts, each holding the promise of holiday cheer and warm memories.
+        ¡Celebra la alegría de la temporada con nosotros! Reúnete alrededor de nuestro árbol festivo, rodeado de una abundancia de regalos coloridos, cada uno con la promesa de brindar felicidad navideña y calidez en los recuerdos.
+
+        </motion.p>
+        <motion.p 
+          className="text-2xl text-center md:text-left mt-8 md:mt-0 md:ml-8 md:w-1/3"
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+        >
+        Juan Andrés Sánchez, estudiante de 9º grado de la clase de Tecnología.
         </motion.p>
       </div>
     </section>
