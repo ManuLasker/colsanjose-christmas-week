@@ -6,7 +6,7 @@ import Image from 'next/image'
 
 export default function Header() {
   return (
-    <header className="bg-red-900 relative">
+    <header className="bg-red-900 pt-5">
       <div className="absolute top-0 left-0 right-0 flex justify-between px-4">
         {[...Array(20)].map((_, i) => (
           <motion.div
@@ -23,7 +23,7 @@ export default function Header() {
           />
         ))}
       </div>
-      <nav className="container mx-auto px-4 py-6 flex justify-between items-center">
+      <nav className="container mx-auto pt-12 pb-8 flex justify-between items-center">
         <Link href="/" className="text-white text-2xl">
           <Image src="/escudo_colegio.png" width={100} height={100} alt='Escudo'></Image>
         </Link>

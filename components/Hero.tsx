@@ -53,7 +53,7 @@ export default function Hero() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
         >
-        Juan Andrés Sánchez, estudiante de 9º grado de la clase de Tecnología.
+            <b className='extra-bold'>Juan Andrés Sánchez</b>, estudiante de 9º grado de la clase de Tecnología.
         </motion.p>
       </div>
     </section>

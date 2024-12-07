@@ -5,16 +5,40 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { X, Gift } from 'lucide-react'
 
 const images = [
-  '/placeholder.svg',
-  '/placeholder.svg',
-  '/placeholder.svg',
-  '/placeholder.svg',
-  '/placeholder.svg',
-  '/placeholder.svg',
+  {
+    src: '/placeholder.svg',
+    title: 'Celebración Navideña',
+    description: 'Momentos especiales de nuestra comunidad celebrando la navidad'
+  },
+  {
+    src: '/placeholder.svg',
+    title: 'Luces Festivas',
+    description: 'Iluminando nuestras calles con el espíritu navideño'
+  },
+  {
+    src: '/placeholder.svg',
+    title: 'Regalos Compartidos',
+    description: 'La alegría de dar y recibir en esta temporada especial'
+  },
+  {
+    src: '/placeholder.svg',
+    title: 'Cena Familiar',
+    description: 'Reuniones llenas de amor y tradiciones navideñas'
+  },
+  {
+    src: '/placeholder.svg',
+    title: 'Decoraciones Festivas',
+    description: 'Adornando nuestros hogares con el espíritu de la Navidad'
+  },
+  {
+    src: '/placeholder.svg',
+    title: 'Villancicos en Comunidad',
+    description: 'Compartiendo la música y alegría de la temporada'
+  },
 ];
 
 export default function Gallery() {
-  const [selectedImage, setSelectedImage] = useState<string | null>(null)
+  const [selectedImage, setSelectedImage] = useState<typeof images[0] | null>(null)
 
   return (
     <section id="gallery" className="mx-auto px-4 py-12 mb-16">
@@ -24,23 +48,29 @@ export default function Gallery() {
         animate={{ opacity: 1, y: 0 }}
       >
         <Gift className="mr-4" size={36} />
-        Festividades y Celebraciones
+        Momentos Navideños
       </motion.h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {images.map((_, index) => (
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {images.map((image, index) => (
           <motion.div
             key={index}
-            className="aspect-square rounded-lg overflow-hidden cursor-pointer bg-red-800 hover:bg-red-700 transition-colors"
+            className="bg-red-800 bg-opacity-50 flex flex-col justify-between items-center p-5 rounded-3xl text-white h-full"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.1 }}
-            onClick={() => setSelectedImage(images[index])}
           >
-            <img
-              src={images[index]}
-              alt={`Holiday moment ${index + 1}`}
-              className="w-full h-full object-cover"
-            />
+            <div className="mb-4">
+              <img
+                src={image.src}
+                alt={image.title}
+                className="w-full h-full object-cover rounded-lg cursor-pointer"
+                onClick={() => setSelectedImage(image)}
+              />
+            </div>
+            <div className="text-center">
+              <h5 className="text-lg font-semibold mb-2">{image.title}</h5>
+              <p className="text-sm">{image.description}</p>
+            </div>
           </motion.div>
         ))}
       </div>
@@ -55,17 +85,19 @@ export default function Gallery() {
             onClick={() => setSelectedImage(null)}
           >
             <motion.div
-              className="bg-red-800 rounded-lg overflow-hidden max-w-4xl w-full max-h-[80vh] h-full relative flex items-center justify-center"
+              className="bg-red-800 bg-opacity-50 rounded-lg overflow-hidden max-w-4xl w-full max-h-[80vh] h-full relative flex flex-col items-center justify-center"
               initial={{ scale: 0.9 }}
               animate={{ scale: 1 }}
               exit={{ scale: 0.9 }}
               onClick={(e) => e.stopPropagation()}
             >
               <img
-                src={selectedImage}
-                alt="Selected holiday moment"
-                className="max-w-full max-h-full w-auto h-auto object-contain"
+                src={selectedImage.src}
+                alt={selectedImage.title}
+                className="max-w-full max-h-[60vh] w-auto h-auto object-contain mb-4"
               />
+              <h3 className="text-2xl font-bold text-white mb-2">{selectedImage.title}</h3>
+              <p className="text-white text-center px-4">{selectedImage.description}</p>
               <button
                 onClick={() => setSelectedImage(null)}
                 className="absolute top-4 right-4 bg-red-600 hover:bg-red-700 text-white rounded-full p-2 transition-colors duration-200 ease-in-out"
