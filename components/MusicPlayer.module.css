@@ -1,0 +1,23 @@
+.musicPlayer {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.playButton {
+  background-color: #ffd700; /* Gold */
+  color: #1a472a; /* Deep Christmas green */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: 'Mountains of Christmas', cursive;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.playButton:hover {
+  background-color: #ffea00;
+}
+

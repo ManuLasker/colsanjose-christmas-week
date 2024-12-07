@@ -1,0 +1,70 @@
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+.greeting {
+  font-size: 4rem;
+  font-family: 'Mountains of Christmas', cursive;
+  color: #ffd700; /* Gold */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 2rem;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.illustration {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Updated: Align items to center */
+  margin-bottom: 2rem;
+}
+
+.tree {
+  width: 250px; /* Updated: Increased width */
+  height: 250px; /* Updated: Increased height */
+}
+
+.ornament {
+  animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+  from { filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.7)); }
+  to { filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.9)); }
+}
+
+.message {
+  font-size: 1.5rem;
+  color: #ffffff;
+  max-width: 600px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .greeting {
+    font-size: 2.5rem;
+  }
+
+  .illustration {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tree {
+    width: 200px; /* Updated: Responsive width */
+    height: 200px; /* Updated: Responsive height */
+  }
+
+  .message {
+    font-size: 1.2rem;
+  }
+}
+

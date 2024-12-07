@@ -1,0 +1,80 @@
+.footer {
+  background-color: rgba(139, 0, 0, 0.9); /* Christmas red with slight transparency */
+  color: #ffffff;
+  padding: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.lightsContainer {
+  display: flex;
+  justify-content: space-around;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.light {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #ffff00;
+  animation: twinkle 1s infinite alternate;
+}
+
+@keyframes twinkle {
+  0% { opacity: 0.5; transform: scale(0.8); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.section {
+  flex: 1;
+  min-width: 200px;
+  margin-bottom: 1rem;
+}
+
+.sectionTitle {
+  font-family: 'Mountains of Christmas', cursive;
+  font-size: 1.5rem;
+  color: #ffd700; /* Gold */
+  margin-bottom: 1rem;
+}
+
+.link {
+  display: block;
+  color: #ffffff;
+  text-decoration: none;
+  margin-bottom: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.link:hover {
+  color: #ffd700; /* Gold */
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 1rem;
+  }
+
+  .content {
+    flex-direction: column;
+  }
+
+  .section {
+    margin-bottom: 1.5rem;
+  }
+
+  .light {
+    width: 6px;
+    height: 6px;
+  }
+}
+

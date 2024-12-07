@@ -1,0 +1,15 @@
+.mainContent {
+  background-color: #1a472a; /* Deep Christmas green */
+  color: #ffffff;
+  min-height: calc(100vh - 100px); /* Adjust based on header and footer height */
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 0;
+}
+
+@media (max-width: 768px) {
+  .mainContent {
+    padding: 1rem 0;
+  }
+}
+
