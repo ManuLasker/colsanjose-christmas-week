@@ -4,8 +4,8 @@ import { Phone, Mail, MapPin } from 'lucide-react'
 
 export default function Footer() {
   return (
-    <footer id="contact" className="bg-red-900 text-white relative pt-10">
-      <div className="absolute top-0 left-0 right-0 flex justify-between px-4">
+    <footer id="contact" className="bg-red-900 text-white">
+      <div className="relative top-0 left-0 right-0 flex justify-between px-4 pb-2">
         {[...Array(20)].map((_, i) => (
           <motion.div
             key={i}
