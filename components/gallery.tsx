@@ -4,41 +4,47 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, Gift } from 'lucide-react'
 
-const images = [
+const media = [
   {
-    src: '/placeholder.svg',
-    title: 'Celebración Navideña',
-    description: 'Momentos especiales de nuestra comunidad celebrando la navidad'
+    type: 'image',
+    src: '/media/media_1.jpg',
+    title: 'Capitanes Navideños',
+    description: 'Líderes juveniles y niños celebrando juntos la magia de la Navidad con entusiasmo y unidad.'
   },
   {
-    src: '/placeholder.svg',
-    title: 'Luces Festivas',
-    description: 'Iluminando nuestras calles con el espíritu navideño'
+    type: 'image',
+    src: '/media/media_2.jpg',
+    title: 'Alegría Navideña Escolar',
+    description: 'Estudiantes reunidos junto al árbol navideño, simbolizando el espíritu de comunidad y festividad en la escuela.'
   },
   {
-    src: '/placeholder.svg',
-    title: 'Regalos Compartidos',
-    description: 'La alegría de dar y recibir en esta temporada especial'
+    type: 'video',
+    src: '/media/video_1.mp4',
+    title: 'Cantando la Novena',
+    description: '"Un momento especial de devoción y tradición, donde los estudiantes entonan canciones de la novena navideña.'
   },
   {
-    src: '/placeholder.svg',
-    title: 'Cena Familiar',
-    description: 'Reuniones llenas de amor y tradiciones navideñas'
+    type: 'image',
+    src: '/media/media_4.jpg',
+    title: 'Preparativos Navideños en el Aula',
+    description: 'Estudiantes organizando una celebración navideña en el aula, compartiendo risas y momentos especiales.'
   },
   {
-    src: '/placeholder.svg',
-    title: 'Decoraciones Festivas',
-    description: 'Adornando nuestros hogares con el espíritu de la Navidad'
+    type: 'video',
+    src: '/media/video_2.mp4',
+    title: 'Lectura de la Novena',
+    description: 'Un momento especial donde los estudiantes leen y reflexionan juntos durante la Novena de Navidad.'
   },
   {
-    src: '/placeholder.svg',
-    title: 'Villancicos en Comunidad',
-    description: 'Compartiendo la música y alegría de la temporada'
+    type: 'image',
+    src: '/media/media_3.jpg',
+    title: 'Encuentro Navideño Escolar',
+    description: 'Niños y niñas celebrando juntos el espíritu navideño con entusiasmo y alegría comunitaria.'
   },
 ];
 
 export default function Gallery() {
-  const [selectedImage, setSelectedImage] = useState<typeof images[0] | null>(null)
+  const [selectedMedia, setSelectedMedia] = useState<typeof media[0] | null>(null)
 
   return (
     <section id="gallery" className="mx-auto px-4 py-12 mb-16">
@@ -51,7 +57,7 @@ export default function Gallery() {
         Momentos Navideños
       </motion.h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {images.map((image, index) => (
+        {media.map((item, index) => (
           <motion.div
             key={index}
             className="bg-red-800 bg-opacity-50 flex flex-col justify-between items-center p-5 rounded-3xl text-white h-full"
@@ -60,29 +66,38 @@ export default function Gallery() {
             transition={{ delay: index * 0.1 }}
           >
             <div className="mb-4">
-              <img
-                src={image.src}
-                alt={image.title}
-                className="w-full h-full object-cover rounded-lg cursor-pointer"
-                onClick={() => setSelectedImage(image)}
-              />
+              {item.type === 'image' ? (
+                <img
+                  src={item.src}
+                  alt={item.title}
+                  className="w-full h-full object-cover rounded-lg cursor-pointer"
+                  onClick={() => setSelectedMedia(item)}
+                />
+              ) : (
+                <video
+                  src={item.src}
+                  className="w-full h-full object-cover rounded-lg cursor-pointer"
+                  onClick={() => setSelectedMedia(item)}
+                  controls
+                />
+              )}
             </div>
             <div className="text-center">
-              <h5 className="text-lg font-semibold mb-2">{image.title}</h5>
-              <p className="text-sm">{image.description}</p>
+              <h5 className="text-lg font-semibold mb-2">{item.title}</h5>
+              <p className="text-sm">{item.description}</p>
             </div>
           </motion.div>
         ))}
       </div>
 
       <AnimatePresence>
-        {selectedImage && (
+        {selectedMedia && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-md flex items-center justify-center p-4 z-50"
-            onClick={() => setSelectedImage(null)}
+            onClick={() => setSelectedMedia(null)}
           >
             <motion.div
               className="bg-red-800 bg-opacity-50 rounded-lg overflow-hidden max-w-4xl w-full max-h-[80vh] h-full relative flex flex-col items-center justify-center"
@@ -91,15 +106,24 @@ export default function Gallery() {
               exit={{ scale: 0.9 }}
               onClick={(e) => e.stopPropagation()}
             >
-              <img
-                src={selectedImage.src}
-                alt={selectedImage.title}
-                className="max-w-full max-h-[60vh] w-auto h-auto object-contain mb-4"
-              />
-              <h3 className="text-2xl font-bold text-white mb-2">{selectedImage.title}</h3>
-              <p className="text-white text-center px-4">{selectedImage.description}</p>
+              {selectedMedia.type === 'image' ? (
+                <img
+                  src={selectedMedia.src}
+                  alt={selectedMedia.title}
+                  className="max-w-full max-h-[60vh] w-auto h-auto object-contain mb-4"
+                />
+              ) : (
+                <video
+                  src={selectedMedia.src}
+                  className="max-w-full max-h-[60vh] w-auto h-auto object-contain mb-4"
+                  controls
+                  autoPlay
+                />
+              )}
+              <h3 className="text-2xl font-bold text-white mb-2">{selectedMedia.title}</h3>
+              <p className="text-white text-center px-4">{selectedMedia.description}</p>
               <button
-                onClick={() => setSelectedImage(null)}
+                onClick={() => setSelectedMedia(null)}
                 className="absolute top-4 right-4 bg-red-600 hover:bg-red-700 text-white rounded-full p-2 transition-colors duration-200 ease-in-out"
               >
                 <X className="w-6 h-6" />
@@ -112,4 +136,3 @@ export default function Gallery() {
     </section>
   )
 }
-
