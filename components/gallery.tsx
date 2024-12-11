@@ -21,7 +21,7 @@ const media = [
     type: 'video',
     src: '/media/video_1.mp4',
     title: 'Cantando la Novena',
-    description: '"Un momento especial de devoción y tradición, donde los estudiantes entonan canciones de la novena navideña.'
+    description: 'Un momento especial de devoción y tradición, donde los estudiantes entonan canciones de la novena navideña.'
   },
   {
     type: 'image',
